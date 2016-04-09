@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project 5</title>
+</head>
+<body>
+<script>
+    var answer = 0; // initialize answer
+    var numberToCheck = 380; // first number to check (19 * 20)
+
+    // These factors include smaller factors, no need to check smaller factors
+    // 20 | 2, 5, 4, 10, 1
+    // 19
+    // 18 | 3, 6
+    // 17
+    // 16 | 8
+    // 15
+    // 14 | 7
+    // 13
+    // 12
+    // 11
+
+    while (answer == 0) {
+        if (isDivisible(numberToCheck)) {
+            answer = numberToCheck;
+        }
+        numberToCheck += 20;
+    }
+
+    console.log("Answer found: " + answer);
+
+    function isDivisible(num) {
+        for (var i = 11; i <= 20; i++) {
+            if (num % i != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

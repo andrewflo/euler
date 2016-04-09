@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project 4</title>
+</head>
+<body>
+<script>
+    var palindromeFound = false;
+    var largestPalindrome = 0;
+
+    var productArray = [];
+
+    for (var x = 999; x >= 100; x--) {
+        for (var y = 999; y >= 100; y--) {
+            productArray = toArray(x*y);
+
+            if (checkPalindrome(productArray)) {
+                palindromeFound = true;
+                console.log("Palindrome found: " + (x*y) + " = " + x + " * " + y);
+                if ((x*y) > largestPalindrome) { largestPalindrome = x*y; }
+                break;
+            }
+        }
+    }
+
+    console.log("Largest palindrome: " + largestPalindrome);
+
+    function toArray(num) {
+        var numArray = [];
+        while (num > 0) {
+            var digit = num % 10;
+            num = (num-digit) / 10;
+            numArray.push(digit);
+        }
+
+        return numArray;
+    }
+
+    function checkPalindrome(numArray) {
+        var isPalindrome = true;
+        var reversedArray = [];
+
+        for (var x = (numArray.length - 1); x >= 0; x--) {
+            reversedArray.push(numArray[x])
+        }
+
+        for (var i = (numArray.length - 1); i >= 0; i--) {
+            if (numArray[i] != reversedArray[i] ) {
+                isPalindrome = false;
+            }
+        }
+
+        return isPalindrome;
+    }
+</script>
+</body>
+</html>

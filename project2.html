@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project 2</title>
+</head>
+<body>
+<p id="answer">Initial</p>
+
+<script>
+    var answer = 0;
+
+    var current = 1;
+    var prev = 0;
+    var next = 0;
+
+    while (current < 4000000) {
+        next = current + prev;
+        prev = current;
+        current = next;
+
+        if (current%2 == 0) answer += current;
+    }
+
+    document.getElementById("answer").innerHTML = answer;
+</script>
+</body>
+</html>

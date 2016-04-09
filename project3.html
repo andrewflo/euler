@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project 3</title>
+</head>
+<body>
+<script>
+    var answer = 0;
+
+    var number = 600851475143;
+    var largestPrimeFactor = 0;
+    var factor;
+    var iterator = 1; //10086647
+
+    while (largestPrimeFactor == 0) {
+        iterator++;
+
+        factor = number/iterator;
+
+        if (factor % 1 == 0) {
+            if(checkPrime(factor)) {
+                console.log("Largest prime factor found: " + factor);
+                largestPrimeFactor = factor;
+            }
+        }
+    }
+
+    function checkPrimeFactor(num) { console.log(num + ": " + number/num); }
+
+    function checkPrime(num) {
+        var isPrime = true;
+        for (var i = 2; i < num; i++) {
+            if (num%i == 0) isPrime = false;
+        }
+        return isPrime;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project 7</title>
+</head>
+<body>
+<script>
+    var numberOfPrimes = 0;
+    var currentNumber = 0;
+
+    while (numberOfPrimes < 10001) {
+        //increment number
+        currentNumber++;
+
+        // check if current number is a prime
+        while (!checkPrime(currentNumber)) {
+            // not a prime, increment
+            currentNumber++;
+        }
+
+        // prime found, increment counter & number
+        numberOfPrimes++;
+    }
+
+    console.log("Prime #" + numberOfPrimes + ": " + currentNumber);
+
+    function checkPrime(num) {
+        // 1 & 2 are prime
+        if (num == 1 || num == 2 || num == 5 || num == 7 || num == 11 || num == 13) { return true; }
+
+        // manual check common numbers
+        if (num % 2 == 0) { return false; }
+        if (num % 3 == 0) { return false; }
+        if (num % 5 == 0) { return false; }
+        if (num % 7 == 0) { return false; }
+        if (num % 11 == 0) { return false; }
+        if (num % 13 == 0) { return false; }
+
+        // brute force
+        for (var i = 17; i < num; i += 2) { if (num%i == 0) return false; }
+
+        // is a prime number
+        return true;
+    }
+</script>
+</body>
+</html>
